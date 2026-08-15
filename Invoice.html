@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Invoice / Report Template - SafeX Solutions</title>
+
+    <meta
+        name="description"
+        content="Professional print-friendly invoice and report template by SafeX Solutions."
+    />
+
+    <style>
+        /* =========================================
+           GLOBAL STYLES
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #222222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           MAIN INVOICE WRAPPER
+        ========================================= */
+
+        .invoice-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            padding: 40px 45px;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #1a3c6e;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a3c6e;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-area p {
+            color: #333333;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .invoice-meta {
+            text-align: right;
+        }
+
+        .invoice-meta .label {
+            font-weight: 600;
+            color: #1a3c6e;
+        }
+
+        .invoice-meta .value {
+            font-weight: 400;
+            color: #222222;
+        }
+
+        .invoice-meta p {
+            margin: 4px 0;
+            font-size: 15px;
+        }
+
+        /* =========================================
+           CLIENT INFORMATION
+        ========================================= */
+
+        .client-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #f8faff;
+            padding: 18px 22px;
+            border-radius: 10px;
+            border-left: 5px solid #1a3c6e;
+        }
+
+        .client-info .bill-to h2 {
+            font-size: 16px;
+            color: #1a3c6e;
+            margin-bottom: 4px;
+        }
+
+        .client-info .bill-to p {
+            font-size: 15px;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        .client-info .invoice-details p {
+            font-size: 15px;
+            margin: 3px 0;
+            color: #222222;
+        }
+
+        .client-info .invoice-details strong {
+            color: #1a3c6e;
+        }
+
+        /* =========================================
+           TABLE
+        ========================================= */
+
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        thead {
+            background: #1a3c6e;
+            color: #ffffff;
+        }
+
+        th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e4e7ef;
+            color: #222222;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #f8faff;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* =========================================
+           TOTALS
+        ========================================= */
+
+        .totals {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .totals-box {
+            width: 300px;
+            background: #f8faff;
+            padding: 18px 22px;
+            border-radius: 10px;
+            border-top: 3px solid #1a3c6e;
+        }
+
+        .totals-box .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+            color: #222222;
+        }
+
+        .totals-box .row.total {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a3c6e;
+            border-top: 2px solid #cccccc;
+            margin-top: 6px;
+            padding-top: 12px;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            border-top: 2px solid #e4e7ef;
+            padding-top: 22px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .footer .thanks {
+            font-weight: 600;
+            color: #1a3c6e;
+            font-size: 16px;
+        }
+
+        .footer-contact {
+            font-size: 13px;
+            color: #333333;
+            margin-top: 4px;
+        }
+
+        .footer .print-hint {
+            background: #eef2f7;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #1a3c6e;
+            align-self: flex-start;
+        }
+
+        .footer .print-hint i {
+            font-style: normal;
+            display: inline-block;
+        }
+
+        /* =========================================
+           PRINT BUTTON
+        ========================================= */
+
+        .btn-wrap {
+            text-align: center;
+        }
+
+        .print-btn {
+            display: inline-block;
+            background: #1a3c6e;
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(26, 60, 110, 0.3);
+        }
+
+        .print-btn:hover {
+            background: #0f2a4f;
+        }
+
+        .print-btn:focus {
+            outline: 3px solid #7aa7e8;
+            outline-offset: 3px;
+        }
+
+        .print-btn:active {
+            transform: scale(0.97);
+        }
+
+        .print-note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #333333;
+        }
+
+        /* =========================================
+           PRINT STYLES
+        ========================================= */
+
+        @media print {
+
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+                min-height: auto !important;
+            }
+
+            .invoice-wrapper {
+                max-width: 100% !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 0.8in 0.7in !important;
+                margin: 0 !important;
+            }
+
+            .print-btn,
+            .btn-wrap,
+            .no-print {
+                display: none !important;
+            }
+
+            .header {
+                border-bottom: 2px solid #1a3c6e !important;
+                margin-bottom: 18px !important;
+                padding-bottom: 14px !important;
+            }
+
+            .logo-area h1 {
+                font-size: 28px !important;
+            }
+
+            .client-info {
+                background: #f4f7fc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                border-left: 4px solid #1a3c6e !important;
+                padding: 14px 18px !important;
+            }
+
+            thead {
+                background: #1a3c6e !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            th {
+                color: #ffffff !important;
+            }
+
+            .totals-box {
+                background: #f4f7fc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .invoice-wrapper {
+                page-break-after: avoid;
+            }
+
+            tr {
+                page-break-inside: avoid;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            tbody {
+                display: table-row-group;
+            }
+
+            .footer .print-hint {
+                background: #eef2f7 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body,
+            .invoice-wrapper,
+            td,
+            p,
+            .label,
+            .value {
+                color: #000000 !important;
+            }
+
+            .footer {
+                margin-top: 20px !important;
+                padding-top: 16px !important;
+            }
+
+            a {
+                text-decoration: none !important;
+                color: #000000 !important;
+            }
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 15px 10px;
+                align-items: flex-start;
+            }
+
+            .invoice-wrapper {
+                padding: 20px 18px;
+                border-radius: 12px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-area h1 {
+                font-size: 28px;
+            }
+
+            .invoice-meta {
+                text-align: left;
+                width: 100%;
+            }
+
+            .client-info {
+                flex-direction: column;
+            }
+
+            .totals {
+                justify-content: flex-start;
+            }
+
+            .totals-box {
+                width: 100%;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer .print-hint {
+                align-self: center;
+            }
+
+            table {
+                min-width: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="invoice-wrapper" id="invoice">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header class="header">
+
+            <div class="logo-area">
+                <h1>SafeX Solutions</h1>
+                <p>Innovation • Security • Trust</p>
+            </div>
+
+            <div class="invoice-meta">
+                <p>
+                    <span class="label">Invoice #</span>
+                    <span class="value">INV-2026-008</span>
+                </p>
+
+                <p>
+                    <span class="label">Date</span>
+                    <span class="value">August 7, 2026</span>
+                </p>
+
+                <p>
+                    <span class="label">Due Date</span>
+                    <span class="value">August 21, 2026</span>
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             CLIENT INFORMATION
+        ========================================== -->
+
+        <section class="client-info" aria-labelledby="bill-to-heading">
+
+            <div class="bill-to">
+
+                <h2 id="bill-to-heading">Bill To:</h2>
+
+                <p>
+                    <strong>TechVision Inc.</strong><br />
+                    456 Innovation Drive, Suite 200<br />
+                    San Francisco, CA 94105<br />
+                    Attn: Accounts Payable
+                </p>
+
+            </div>
+
+            <div class="invoice-details">
+
+                <p>
+                    <strong>Project:</strong>
+                    IT Training Program Q3 2026
+                </p>
+
+                <p>
+                    <strong>PO #:</strong>
+                    PO-2026-112
+                </p>
+
+                <p>
+                    <strong>Payment Terms:</strong>
+                    Net 14
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ITEMIZED TABLE
+        ========================================== -->
+
+        <div class="table-wrap">
+
+            <table>
+
+                <caption class="sr-only">
+                    Itemized invoice services and prices
+                </caption>
+
+                <thead>
+
+                    <tr>
+                        <th scope="col">#</th>
+
+                        <th scope="col">
+                            Course / Service Description
+                        </th>
+
+                        <th scope="col" class="text-center">
+                            Qty
+                        </th>
+
+                        <th scope="col" class="text-right">
+                            Unit Price (PKR)
+                        </th>
+
+                        <th scope="col" class="text-right">
+                            Total (PKR)
+                        </th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            Web Development Bootcamp
+                            (HTML, CSS, JavaScript)
+                        </td>
+                        <td class="text-center">1</td>
+                        <td class="text-right">₨ 45,000.00</td>
+                        <td class="text-right">₨ 45,000.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            Python Programming (Advanced)
+                            with AI/ML
+                        </td>
+                        <td class="text-center">1</td>
+                        <td class="text-right">₨ 55,000.00</td>
+                        <td class="text-right">₨ 55,000.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            Cybersecurity &amp; Ethical Hacking
+                            Certification
+                        </td>
+                        <td class="text-center">1</td>
+                        <td class="text-right">₨ 65,000.00</td>
+                        <td class="text-right">₨ 65,000.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            Cloud Computing (AWS / Azure)
+                            Associate
+                        </td>
+                        <td class="text-center">2</td>
+                        <td class="text-right">₨ 35,000.00</td>
+                        <td class="text-right">₨ 70,000.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            Data Science &amp; Analytics
+                            (8-Week Program)
+                        </td>
+                        <td class="text-center">8</td>
+                        <td class="text-right">₨ 12,500.00</td>
+                        <td class="text-right">₨ 100,000.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            Mobile App Development
+                            (Flutter / React Native)
+                        </td>
+                        <td class="text-center">1</td>
+                        <td class="text-right">₨ 50,000.00</td>
+                        <td class="text-right">₨ 50,000.00</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- =========================================
+             TOTALS
+        ========================================== -->
+
+        <section class="totals" aria-label="Invoice totals">
+
+            <div class="totals-box">
+
+                <div class="row">
+                    <span>Subtotal</span>
+                    <span>₨ 385,000.00</span>
+                </div>
+
+                <div class="row">
+                    <span>Tax (8.5%)</span>
+                    <span>₨ 32,725.00</span>
+                </div>
+
+                <div class="row">
+                    <span>Discount (10%)</span>
+                    <span>− ₨ 38,500.00</span>
+                </div>
+
+                <div class="row total">
+                    <span>Total</span>
+                    <span>₨ 379,225.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
+
+        <footer class="footer">
+
+            <div>
+
+                <p class="thanks">
+                    Thank you for choosing SafeX Solutions!
+                </p>
+
+                <p class="footer-contact">
+                    SafeX Solutions — 123 Main Boulevard,
+                    Gulberg, Lahore, Pakistan<br />
+                    info@safeXsolutions.com • +92 300 1234567
+                </p>
+
+            </div>
+
+            <div class="print-hint">
+                <i aria-hidden="true">🖨️</i>
+                <strong>Download as PDF:</strong>
+                Print → Save as PDF
+            </div>
+
+        </footer>
+
+
+        <!-- =========================================
+             PRINT BUTTON
+        ========================================== -->
+
+        <div class="btn-wrap no-print">
+
+            <button
+                type="button"
+                class="print-btn"
+                onclick="window.print()"
+                aria-label="Print or download invoice as PDF"
+            >
+                🖨️ Print / Download as PDF
+            </button>
+
+            <p class="print-note">
+                Click the button, then choose
+                <strong>"Save as PDF"</strong>
+                in the print dialog.
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
